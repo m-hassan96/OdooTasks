@@ -1,0 +1,72 @@
+<odoo>
+
+    <record id="todo_tree_view" model="ir.ui.view">
+        <field name="name">todo.tree.view</field>
+        <field name="model">todo.ticket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="number"/>
+                <field name="tag"/>
+                <field name="description"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ticket_form_view" model="ir.ui.view">
+        <field name="name">ticket.form.view</field>
+        <field name="model">todo.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="General Info.">
+                            <field name="name"/>
+                            <field name="tag"/>
+                            <field name="state"/>
+                        </group>
+                        <group string="Additional Info.">
+                            <field name="description"/>
+                            <field name="number"/>
+                            <field name="file"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ticket_search_view" model="ir.ui.view">
+        <field name="name">ticket.search.view</field>
+        <field name="model">todo.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="tag"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="todo_ticket_action" model="ir.actions.act_window">
+        <field name="name">All Tickets</field>
+        <field name="res_model">todo.ticket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="todo_my_ticket_action" model="ir.actions.act_window">
+        <field name="name">Your Tickets</field>
+        <field name="res_model">todo.ticket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_item_todo_tickets"
+              name="All Tickets"
+              parent="menu_root_ticket"
+              action="todo_ticket_action"/>
+
+    <menuitem id="menu_item_todo_ticket"
+              name="My Tickets"
+              parent="menu_root_ticket"
+              action="todo_my_ticket_action"/>
+</odoo>
