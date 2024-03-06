@@ -1,0 +1,89 @@
+<odoo>
+
+    <record id="patient_tree_view" model="ir.ui.view">
+        <field name="name">patient.tree.view</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="f_name"/>
+                <field name="l_name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="address"/>
+                <field name="states"/>
+                <field name="history"/>
+                <field name="pcr"/>
+                <field name="cr_ratio"/>
+                <field name="blood_type"/>
+                <field name="department_id"/>
+                <field name="doctor_id"/>
+                <field name="image" widget="image" options='{"size": [75, 75]}' class="bg-view"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="patient_form_view" model="ir.ui.view">
+        <field name="name">patient.form.view</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="General Info.">
+                            <field name="f_name"/>
+                            <field name="l_name"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="address"/>
+                            <field name="states"/>
+                        </group>
+                        <group string="Additional Info.">
+                            <field name="history"/>
+                            <field name="pcr"/>
+                            <field name="cr_ratio"/>
+                            <field name="blood_type"/>
+                            <field name="department_id"/>
+                            <field name="doctor_id"/>
+                            <field name="image" widget="image" options='{"size": [100, 100]}' class="bg-view"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="patient_search_view" model="ir.ui.view">
+        <field name="name">patient.search.view</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="f_name"/>
+                <field name="l_name"/>
+            </search>
+        </field>
+    </record>
+
+    # view all patients
+    <record id="hms_patient_action" model="ir.actions.act_window">
+        <field name="name">All Patients</field>
+        <field name="res_model">hms.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_item_hms_patients"
+              name="View Patients"
+              parent="menu_root_patient"
+              action="hms_patient_action"/>
+
+    # Add new patient
+    <record id="hms_add_patient_action" model="ir.actions.act_window">
+        <field name="name">Create New Patient</field>
+        <field name="res_model">hms.patient</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_item_hms_patient"
+              name="Create New Patient"
+              parent="menu_root_patient"
+              action="hms_add_patient_action"/>
+</odoo>

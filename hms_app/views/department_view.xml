@@ -1,0 +1,67 @@
+<odoo>
+    <record id="department_tree_view" model="ir.ui.view">
+        <field name="name">department.tree.view</field>
+        <field name="model">hms.department</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="is_open"/>
+                <field name="Patients_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="department_form_view" model="ir.ui.view">
+        <field name="name">department.form.view</field>
+        <field name="model">hms.department</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="General Info.">
+                            <field name="name"/>
+                            <field name="capacity"/>
+                        </group>
+                        <group string="Additional Info.">
+                            <field name="is_open"/>
+                            <field name="Patients_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="department_search_view" model="ir.ui.view">
+        <field name="name">department.search.view</field>
+        <field name="model">hms.department</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    # view all departments
+    <record id="hms_department_action" model="ir.actions.act_window">
+        <field name="name">All Departments</field>
+        <field name="res_model">hms.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_item_hms_departments"
+              parent="menu_root_department"
+              action="hms_department_action"/>
+
+    # Add new patient
+    <record id="hms_add_department_action" model="ir.actions.act_window">
+        <field name="name">Create New Department</field>
+        <field name="res_model">hms.department</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_item_hms_department"
+              parent="menu_root_department"
+              action="hms_add_department_action"/>
+</odoo>
