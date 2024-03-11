@@ -13,5 +13,6 @@
         'views/patient_view.xml',
         'views/department_view.xml',
         'views/doctor_view.xml',
+        'wizard/add_patient_wizard.xml',
     ],
 }

@@ -10,3 +10,4 @@ class Doctor(models.Model):
     l_name = fields.Char('Last Name', required=True)
     image = fields.Binary()
     department_id = fields.Many2one('hms.department', required=True)
+    Patients_id = fields.One2many('hms.patient', 'doctor_id')

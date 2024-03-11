@@ -3,7 +3,7 @@
         <field name="name">hms.tree.view</field>
         <field name="model">hms.doctor</field>
         <field name="arch" type="xml">
-            <tree create="0">
+            <tree>
                 <field name="f_name"/>
                 <field name="l_name"/>
                 <field name="department_id"/>
@@ -24,6 +24,11 @@
                         <field name="department_id"/>
                         <field name="image" widget="image" options='{"size": [100, 100]}' class="bg-view"/>
                     </group>
+                    <notebook>
+                        <page string="patients">
+                            <field name="Patients_id"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -47,20 +52,8 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_item_hms_doctors"
-              name="View Doctors"
-              parent="menu_root_doctor"
-              action="hms_doctor_action"/>
-
-    # Add new doctor
-    <record id="hms_add_doctor_action" model="ir.actions.act_window">
-        <field name="name">Create New Doctor</field>
-        <field name="res_model">hms.doctor</field>
-        <field name="view_mode">form</field>
-    </record>
-
-    <menuitem id="menu_item_hms_doctor"
-              name="Create New Doctor"
-              parent="menu_root_doctor"
-              action="hms_add_doctor_action"/>
+<!--    <menuitem id="menu_item_hms_doctors"-->
+<!--              name="View Doctors"-->
+<!--              parent="menu_root_doctor"-->
+<!--              action="hms_doctor_action"/>-->
 </odoo>

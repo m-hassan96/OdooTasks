@@ -54,16 +54,16 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <menuitem id="menu_item_todo_tickets"
+              name="All Tickets"
+              parent="menu_root_ticket"
+              action="todo_ticket_action"/>
+
     <record id="todo_my_ticket_action" model="ir.actions.act_window">
         <field name="name">Your Tickets</field>
         <field name="res_model">todo.ticket</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_item_todo_tickets"
-              name="All Tickets"
-              parent="menu_root_ticket"
-              action="todo_ticket_action"/>
 
     <menuitem id="menu_item_todo_ticket"
               name="My Tickets"

@@ -5,13 +5,16 @@
 
     <menuitem id="menu_root_patient"
               name="Patients"
-              parent="menu_hms"/>
+              parent="menu_hms"
+              action="hms_patient_action"/>
 
     <menuitem id="menu_root_department"
               name="Departments"
-              parent="menu_hms"/>
+              parent="menu_hms"
+              action="hms_department_action"/>
 
     <menuitem id="menu_root_doctor"
               name="Doctors"
-              parent="menu_hms"/>
+              parent="menu_hms"
+              action="hms_doctor_action"/>
 </odoo>

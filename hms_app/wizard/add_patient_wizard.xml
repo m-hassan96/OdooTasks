@@ -1,11 +1,10 @@
 <odoo>
-    <record id="log_wizard_form_view" model="ir.ui.view">
-        <field name="name">log.wizard.view</field>
-        <field name="model">log.wizard</field>
+    <record id="patient_wizard_form_view" model="ir.ui.view">
+        <field name="name">patient.wizard.view</field>
+        <field name="model">patient.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <group class="oe_title">
-                    <field name="patient_id" readonly="1"/>
                     <field name="description"/>
                 </group>
                 <footer>
@@ -17,11 +16,11 @@
         </field>
     </record>
 
-    <record id="log_wizard_action" model="ir.actions.act_window">
+    <record id="patient_wizard_action" model="ir.actions.act_window">
         <field name="name">Add Log</field>
-        <field name="res_model">log.wizard</field>
+        <field name="res_model">patient.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="hms_app.log_wizard_form_view"/>
+        <field name="view_id" ref="hms_app.patient_wizard_form_view"/>
         <field name="target">new</field>
     </record>
 </odoo>
