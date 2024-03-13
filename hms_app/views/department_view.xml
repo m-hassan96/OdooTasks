@@ -51,8 +51,4 @@
         <field name="res_model">hms.department</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-<!--    <menuitem id="menu_item_hms_departments"-->
-<!--              parent="menu_root_department"-->
-<!--              action="hms_department_action"/>-->
 </odoo>

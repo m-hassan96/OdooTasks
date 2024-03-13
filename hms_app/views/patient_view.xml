@@ -90,10 +90,4 @@
         <field name="res_model">hms.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!--    <menuitem id="menu_item_hms_patients"-->
-    <!--              name="View Patients"-->
-    <!--              parent="menu_root_patient"-->
-    <!--              action="hms_patient_action"/>-->
-
 </odoo>

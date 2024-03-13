@@ -51,9 +51,4 @@
         <field name="res_model">hms.doctor</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-<!--    <menuitem id="menu_item_hms_doctors"-->
-<!--              name="View Doctors"-->
-<!--              parent="menu_root_doctor"-->
-<!--              action="hms_doctor_action"/>-->
 </odoo>
