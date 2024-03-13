@@ -26,7 +26,7 @@
                         <page string="patients">
                             <field name="Patients_id"/>
                         </page>
-                        <page string="doctors">
+                        <page string="doctors" groups="hms_app.hms_manager_group">
                             <field name="doctors_id"/>
                         </page>
                     </notebook>

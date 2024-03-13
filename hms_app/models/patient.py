@@ -1,6 +1,7 @@
 from odoo import fields, models, api
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError, ValidationError
+from datetime import datetime
 import re
 
 
@@ -36,6 +37,7 @@ class Patient(models.Model):
         ('good', 'Good'),
     ])
     email = fields.Char(required=True)
+    department_capacity = fields.Integer(related='department_id.capacity')
     line_ids = fields.One2many('hms.patient.line', 'patient_id')
 
     @api.depends('birth_date')
@@ -86,3 +88,16 @@ class Patient(models.Model):
         created_by = fields.Char(default=lambda self: self.env.user.name, readonly="1")
         date = fields.Date(default=fields.Date.today, readonly="1")
         description = fields.Text(required=True)
+        patient_logs = fields.Many2one('hms.patient')
+
+    @api.onchange('age')
+    def _on_change_pcr(self):
+        for record in self:
+            if record.age < 30 and self.age != 0:
+                record.pcr = True
+                return {
+                    'warning': {'title': "Your age is lower than 30 Year",
+                                'message': "The PCR has checked"},
+                }
+            else:
+                record.pcr = False
